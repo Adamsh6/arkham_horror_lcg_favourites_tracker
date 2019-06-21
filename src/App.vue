@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <router-view :coreInvestigators="coreInvestigators" :selectedInvestigator="selectedInvestigator" id="view"></router-view>
+    <nav><router-link :to="{name: 'home'}">Home</router-link></nav>
+    <router-view :coreInvestigators="coreInvestigators" :selectedInvestigator="selectedInvestigator" :allCards="allCards" :favourites="favourites" id="view"></router-view>
 
   </div>
 </template>
@@ -14,7 +15,8 @@ export default {
     return{
       allCards: null,
       coreInvestigators: null,
-      selectedInvestigator: null
+      selectedInvestigator: null,
+      favourites: []
     }
   },
   computed: {
@@ -30,6 +32,14 @@ export default {
       this.allCards = data;
       this.coreInvestigators = this.getCoreInvestigators()
       this.selectedInvestigator = data[1]
+    })
+
+    eventBus.$on('investigator-selected', (investigator) => {
+      this.selectedInvestigator = investigator
+    })
+
+    eventBus.$on('add-card', (card) => {
+      this.favourites.push(card)
     })
 
     // this.coreInvestigators = this.getCoreInvestigators()

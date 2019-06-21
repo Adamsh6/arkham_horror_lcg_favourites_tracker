@@ -1,8 +1,8 @@
 <template>
   <div class="home">
     <div v-for="investigator in coreInvestigators">
-      <router-link v-on:click="handleClick" :to="{ name: 'investigator', params: {code: investigator.code} }">
-        <img  :src="url + investigator.imagesrc"/>
+      <router-link  :to="{ name: 'investigator', params: {code: investigator.code} }">
+        <img v-on:click="handleClick(investigator)" :src="url + investigator.imagesrc"/>
       </router-link>
   </div>
   </div>
@@ -22,9 +22,16 @@ export default {
 
   },
   props: ['coreInvestigators', 'selectedInvestigator'],
+  mounted() {
+    // eventBus.$on('add-card', (card) => {
+    //   console.log("HI")
+    //   console.log(card)
+    //   // this.favourites.push(card)
+    // })
+  },
   methods: {
-    handleClick() {
-     eventBus.$emit('investigator-selected', "HELLLO")
+    handleClick(investigator) {
+     eventBus.$emit('investigator-selected', investigator)
    }
   }
 }
