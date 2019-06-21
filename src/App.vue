@@ -1,12 +1,52 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <router-view :coreInvestigators="coreInvestigators" id="view"></router-view>
   </div>
 </template>
+
+<script>
+
+
+export default {
+  name: 'app',
+  data() {
+    return{
+      allCards: null,
+      coreInvestigators: null
+    }
+  },
+  computed: {
+    // coreInvestigators: getCoreInvestigators()
+  },
+  components: {
+
+  },
+  mounted() {
+    fetch('https://arkhamdb.com/api/public/cards/')
+    .then(res => res.json())
+    .then(data => {
+      this.allCards = data;
+      this.coreInvestigators = this.getCoreInvestigators()
+    })
+
+    // this.coreInvestigators = this.getCoreInvestigators()
+  },
+  methods: {
+    getCoreInvestigators: function() {
+      if(this.allCards){
+      const tempCoreInvestigators = []
+      for(let i=1; i<6; i++){
+        tempCoreInvestigators.push(this.allCards[i])
+      }
+      return tempCoreInvestigators
+    } else {
+      return null
+    }
+
+  }
+}
+}
+</script>
 
 <style>
 #app {
@@ -15,17 +55,6 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+  margin-top: 60px;
 }
 </style>
