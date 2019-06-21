@@ -1,18 +1,20 @@
 <template>
   <div id="app">
-    <router-view :coreInvestigators="coreInvestigators" id="view"></router-view>
+    <router-view :coreInvestigators="coreInvestigators" :selectedInvestigator="selectedInvestigator" id="view"></router-view>
+
   </div>
 </template>
 
 <script>
-
+import {eventBus} from '@/main.js'
 
 export default {
   name: 'app',
   data() {
     return{
       allCards: null,
-      coreInvestigators: null
+      coreInvestigators: null,
+      selectedInvestigator: null
     }
   },
   computed: {
@@ -27,6 +29,7 @@ export default {
     .then(data => {
       this.allCards = data;
       this.coreInvestigators = this.getCoreInvestigators()
+      this.selectedInvestigator = data[1]
     })
 
     // this.coreInvestigators = this.getCoreInvestigators()

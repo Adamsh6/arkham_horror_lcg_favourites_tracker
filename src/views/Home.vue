@@ -1,14 +1,15 @@
 <template>
   <div class="home">
     <div v-for="investigator in coreInvestigators">
-      <img :src="url + investigator.imagesrc"/>
+      <router-link v-on:click="handleClick" :to="{ name: 'investigator', params: {code: investigator.code} }">
+        <img  :src="url + investigator.imagesrc"/>
+      </router-link>
   </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-
+import {eventBus} from '@/main.js'
 
 export default {
   name: 'home',
@@ -20,6 +21,11 @@ export default {
   components: {
 
   },
-  props: ['coreInvestigators']
+  props: ['coreInvestigators', 'selectedInvestigator'],
+  methods: {
+    handleClick() {
+     eventBus.$emit('investigator-selected', "HELLLO")
+   }
+  }
 }
 </script>
