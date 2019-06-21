@@ -2,7 +2,7 @@
   <div>
     <div class="investigator">
     <img  :src="url + selectedInvestigator.imagesrc"/>
-    <card-list :listContent="favourites"></card-list>
+    <card-list :listContent="investigatorFavourites"></card-list>
   </div>
     <card-list id="all-cards" :listContent="filteredCards">{{this.listContent}}</card-list>
   </div>
@@ -20,9 +20,12 @@ export default {
     'card-list': CardList,
   },
   computed: {
+    investigatorFavourites() {
+      return this.favourites[this.selectedInvestigator.code]
+    },
     filteredCards() {
       const filteredCards = this.allCards.filter((card) => {
-        if(!card.xp){
+        if(card.xp === ""){
           return false
 
         }

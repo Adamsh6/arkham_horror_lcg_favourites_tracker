@@ -23,11 +23,6 @@ export default {
   },
   props: ['coreInvestigators', 'selectedInvestigator'],
   mounted() {
-    // eventBus.$on('add-card', (card) => {
-    //   console.log("HI")
-    //   console.log(card)
-    //   // this.favourites.push(card)
-    // })
   },
   methods: {
     handleClick(investigator) {

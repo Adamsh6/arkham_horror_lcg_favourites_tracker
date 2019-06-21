@@ -16,7 +16,7 @@ export default {
       allCards: null,
       coreInvestigators: null,
       selectedInvestigator: null,
-      favourites: []
+      favourites: {}
     }
   },
   computed: {
@@ -39,7 +39,8 @@ export default {
     })
 
     eventBus.$on('add-card', (card) => {
-      this.favourites.push(card)
+
+      this.favourites[this.selectedInvestigator.code].push(card)
     })
 
     // this.coreInvestigators = this.getCoreInvestigators()
@@ -50,6 +51,7 @@ export default {
       const tempCoreInvestigators = []
       for(let i=1; i<6; i++){
         tempCoreInvestigators.push(this.allCards[i])
+        this.favourites[this.allCards[i].code] = []
       }
       return tempCoreInvestigators
     } else {

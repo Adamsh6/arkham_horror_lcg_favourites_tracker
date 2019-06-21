@@ -1,8 +1,8 @@
 <template lang="html">
   <div>
- <h4 v-on:click="handleClick">{{card.name}}</h4>
+ <h4><span :class="card.faction_code" v-on:click="handleClick">{{card.name}} : {{card.type_name}} ({{card.xp}})</span>
    <button v-on:click="handleButton">Add to Favourites</button>
-
+   </h4>
  <card-details v-if="selected" :card="card" />
 </div>
 </template>
@@ -34,4 +34,26 @@ export default {
 </script>
 
 <style lang="css" scoped>
+.guardian {
+  color: blue;
+}
+.neutral {
+  color: grey;
+}
+.seeker {
+  color: gold;
+}
+.mystic {
+  color: purple;
+}
+.survivor {
+  color: red;
+}
+.rogue {
+  color: green;
+}
+
+button {
+  display: inline;
+}
 </style>
