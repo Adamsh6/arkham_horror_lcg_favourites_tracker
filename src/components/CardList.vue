@@ -104,14 +104,9 @@ export default {
       })
       return validation
     },
-    simpleFunction(){
-      return false
-    },
     filterCards(isXP, isClass, isType){
       this.filteredListContent = this.listContent.filter((card) => {
           return isXP(card) && isClass(card) && isType(card)
-        return simpleFunction()
-        return true
       })
     }
   }
@@ -120,4 +115,8 @@ export default {
 </script>
 
 <style lang="css" scoped>
+
+button {
+  display: inline-block;
+}
 </style>

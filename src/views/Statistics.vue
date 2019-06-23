@@ -3,7 +3,7 @@
     <h3>Favourite Cards by Type</h3>
   <bar-chart :sanitisedChartData="favouriteByType"/>
   <h3>Favourite Cards by Faction</h3>
-  <bar-chart :sanitisedChartData="favouriteByFaction"/>
+  <faction-pie-chart :sanitisedChartData="favouriteByFaction"/>
   <h3>Favourite Cards by Cost</h3>
   <bar-chart :sanitisedChartData="favouriteByCost" />
 </div>
@@ -11,6 +11,7 @@
 
 <script>
 import BarChart from '@/components/BarChart'
+import FactionPieChart from '@/components/FactionPieChart'
 export default {
   name: 'statistics',
   data () {
@@ -21,27 +22,10 @@ export default {
   },
   props: ['coreInvestigators', 'selectedInvestigator', 'allCards', 'favourites'],
   components: {
-    'bar-chart': BarChart
+     'bar-chart': BarChart,
+    'faction-pie-chart': FactionPieChart
   },
   computed: {
-    // favouriteByType() {
-    //   const data = [['Type', 'No. of Favourites'], ['Skill', 0], ['Event', 0], ['Asset', 0]];
-    //   const usedCards = {}
-    //   Object.keys(this.favourites).forEach((key) =>{
-    //     this.favourites[key].forEach((card) =>{
-    //       if(!usedCards.hasOwnProperty(card.name)){
-    //         usedCards[card.name] = 1;
-    //         for(let i=1; i < data.length; i++){
-    //           if (card.type_name == data[i][0]){
-    //             data[i][1]++
-    //           }
-    //         }
-    //
-    //       }
-    //     })
-    //   })
-    //   return data
-    // }
     favouriteByType() {
       const data = [['Type', 'No. of Favourites'], ['Skill', 0], ['Event', 0], ['Asset', 0]];
       return this.sanitiseDataByProperty(data, 'type_name')

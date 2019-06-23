@@ -36,7 +36,7 @@ export default {
   color: blue;
 }
 .neutral {
-  color: grey;
+  color: dimgray;
 }
 .seeker {
   color: goldenrod;
@@ -51,7 +51,11 @@ export default {
   color: green;
 }
 
-button {
-  display: inline;
+h4 {
+  text-shadow: 0px 0px 8px white ;
+  background-color: #E6E6FA60 ;
+  background-blend-mode: difference;
+  width: auto;
+  padding: 0;
 }
 </style>

@@ -9,14 +9,18 @@
 
 <script>
 export default {
-  name: 'bar-chart',
+  name: 'faction-pie-chart',
   data() {
     return {
       chartData: this.sanitisedChartData,
       chartOptions: {
         chart: {
           title: 'Favourite Cards',
-        }
+        },
+        fontName: 'Arvo',
+        slices: [{color: 'blue'}, {color: 'goldenrod'}, {color: 'purple'}, {color: 'red'}, {color: 'green'}, {color: 'gray'}],
+        legend: {position: 'labeled'},
+        height: 500
       }
     }
   },

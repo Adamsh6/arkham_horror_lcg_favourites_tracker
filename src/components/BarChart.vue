@@ -16,6 +16,12 @@ export default {
       chartOptions: {
         chart: {
           title: 'Favourite Cards',
+        },
+        fontName: 'Arvo',
+        colors: ['purple'],
+        vAxis: {
+          format: "#",
+          baseline: 0
         }
       }
     }

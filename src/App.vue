@@ -46,28 +46,12 @@ export default {
     // this.coreInvestigators = this.getCoreInvestigators()
   },
   methods: {
-    getCoreInvestigators: function() {
-      if(this.allCards){
-        const tempCoreInvestigators = []
-        for(let i=1; i<6; i++){
-          tempCoreInvestigators.push(this.allCards[i])
-          this.favourites[this.allCards[i].code] = []
-        }
-        return tempCoreInvestigators
-      } else {
-        return null
-      }
-
-    }
-    //   getCoreInvestigators: function() {
-    //     if(this.allCards){
+    // getCoreInvestigators: function() {
+    //   if(this.allCards){
     //     const tempCoreInvestigators = []
-    //     for(let i=1; i<this.allCards.length; i++){
-    //       const card = this.allCards[i]
-    //       if(card.type_code == 'investigator'){
-    //       tempCoreInvestigators.push(card)
-    //       this.favourites[card.code] = []
-    //     }
+    //     for(let i=1; i<6; i++){
+    //       tempCoreInvestigators.push(this.allCards[i])
+    //       this.favourites[this.allCards[i].code] = []
     //     }
     //     return tempCoreInvestigators
     //   } else {
@@ -75,17 +59,36 @@ export default {
     //   }
     //
     // }
+      getCoreInvestigators: function() {
+        if(this.allCards){
+        const tempCoreInvestigators = []
+        for(let i=1; i<this.allCards.length; i++){
+          const card = this.allCards[i]
+          if(card.type_code == 'investigator'){
+          tempCoreInvestigators.push(card)
+          this.favourites[card.code] = []
+        }
+        }
+        return tempCoreInvestigators
+      } else {
+        return null
+      }
+
+    }
   }
 }
 </script>
 
 <style>
 body {
-  /* background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/beb24151-6c66-453d-88ba-352feea951ec/dcqpv53-deedeb53-832e-4dcd-9783-67ccbaa608da.jpg/v1/fill/w_1531,h_522,q_70,strp/arkham_horror__the_circle_undone_by_jakemurray_dcqpv53-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjU1IiwicGF0aCI6IlwvZlwvYmViMjQxNTEtNmM2Ni00NTNkLTg4YmEtMzUyZmVlYTk1MWVjXC9kY3FwdjUzLWRlZWRlYjUzLTgzMmUtNGRjZC05NzgzLTY3Y2NiYWE2MDhkYS5qcGciLCJ3aWR0aCI6Ijw9MTkyMCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.F-ZxWmJvvEy_YLqaca6K1svftPkR6M4c0PGsjJXNs-I');
-  background-size: auto; */
+   background-image: url('https://i.imgur.com/Wu7uIaO.jpg');
+   /* background-image: url('https://wallpaper-gallery.net/images/lovecraft-wallpaper-1920x1080/lovecraft-wallpaper-1920x1080-20.jpg'); */
+  background-size: cover;
+  background-attachment: fixed;
 }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Arvo', serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -93,5 +96,11 @@ body {
   margin-top: 60px;
 
 
+}
+a {
+  color: white;
+}
+a:visited {
+  color: white;
 }
 </style>
