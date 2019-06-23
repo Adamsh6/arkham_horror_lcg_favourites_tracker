@@ -2,9 +2,9 @@
   <div>
     <div class="investigator">
     <img  :src="url + selectedInvestigator.imagesrc"/>
-    <card-list :listContent="investigatorFavourites"></card-list>
+    <card-list :listContent="investigatorFavourites" :favourites="true"></card-list>
   </div>
-    <card-list id="all-cards" :listContent="filteredCards">{{this.listContent}}</card-list>
+    <card-list v-if="filteredCards"  id="all-cards" :listContent="filteredCards" :favourites="investigatorFavourites">{{this.listContent}}</card-list>
   </div>
 </template>
 
@@ -55,7 +55,7 @@ export default {
 <style lang="css" scoped>
 .investigator {
   float: left;
-  width: 40%
+  width: 45%
 }
 #all-cards {
   float:right;

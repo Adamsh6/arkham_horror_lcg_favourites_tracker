@@ -1,8 +1,6 @@
 <template lang="html">
   <div>
- <h4><span :class="card.faction_code" v-on:click="handleClick">{{card.name}} : {{card.type_name}} ({{card.xp}})</span>
-   <button v-on:click="handleButton">Add to Favourites</button>
-   </h4>
+ <h4><span :class="card.faction_code" v-on:click="handleClick"><span v-if="card.cost > -1">{{card.cost}}📦</span> {{card.name}} : {{card.type_name}} ({{card.xp}})</span></h4>
  <card-details v-if="selected" :card="card" />
 </div>
 </template>
@@ -41,7 +39,7 @@ export default {
   color: grey;
 }
 .seeker {
-  color: gold;
+  color: goldenrod;
 }
 .mystic {
   color: purple;
