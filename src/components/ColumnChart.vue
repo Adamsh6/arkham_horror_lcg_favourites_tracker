@@ -1,6 +1,6 @@
 <template lang="html">
   <GChart
-    type="BarChart"
+    type="ColumnChart"
     :data="chartData"
     :options="chartOptions"
   />
@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: 'bar-chart',
+  name: 'column-chart',
   data() {
     return {
       chartData: this.sanitisedChartData,

@@ -1,17 +1,21 @@
 <template lang="html">
   <div>
     <h3>Favourite Cards by Type</h3>
-  <bar-chart :sanitisedChartData="favouriteByType"/>
+  <column-chart :sanitisedChartData="favouriteByType"/>
   <h3>Favourite Cards by Faction</h3>
   <faction-pie-chart :sanitisedChartData="favouriteByFaction"/>
   <h3>Favourite Cards by Cost</h3>
-  <bar-chart :sanitisedChartData="favouriteByCost" />
+  <column-chart :sanitisedChartData="favouriteByCost" />
+  <h3>Repeated Favourite Cards</h3>
+  <bar-chart :sanitisedChartData="favouriteByRepeated" />
 </div>
 </template>
 
 <script>
 import BarChart from '@/components/BarChart'
 import FactionPieChart from '@/components/FactionPieChart'
+import ColumnChart from '@/components/ColumnChart'
+
 export default {
   name: 'statistics',
   data () {
@@ -23,7 +27,8 @@ export default {
   props: ['coreInvestigators', 'selectedInvestigator', 'allCards', 'favourites'],
   components: {
      'bar-chart': BarChart,
-    'faction-pie-chart': FactionPieChart
+    'faction-pie-chart': FactionPieChart,
+    'column-chart': ColumnChart
   },
   computed: {
     favouriteByType() {
@@ -37,6 +42,27 @@ export default {
     favouriteByCost() {
       const data = [['Cost', 'No. of Favourites'], [0, 0], [1, 0], [2, 0], [3, 0], [4, 0], [5, 0], [6, 0], [7, 0]]
       return this.sanitiseDataByProperty(data, 'cost')
+    },
+    favouriteByRepeated() {
+      const data = [['Repeated Card', 'No. of Investigators']]
+      const cardCounter = {}
+
+      Object.keys(this.favourites).forEach((key) =>{
+        this.favourites[key].forEach((card) =>{
+          if(cardCounter.hasOwnProperty(`${card.name} (${card.xp})`)){
+            cardCounter[`${card.name} (${card.xp})`] ++
+          } else {
+            cardCounter[`${card.name} (${card.xp})`] = 1
+          }
+
+        })
+      })
+      Object.keys(cardCounter).forEach((key) =>{
+        if(cardCounter[key] > 1){
+          data.push([key, cardCounter[key]])
+        }
+      })
+      return data
     }
   },
   methods: {
@@ -59,9 +85,13 @@ export default {
       return data
 
     }
+
   }
 }
 </script>
 
 <style lang="css" scoped>
+h3 {
+  color: white;
+}
 </style>

@@ -40,6 +40,7 @@ export default {
 }
 .seeker {
   color: goldenrod;
+  text-shadow: 0px 0px 8px black;
 }
 .mystic {
   color: purple;

@@ -46,19 +46,6 @@ export default {
     // this.coreInvestigators = this.getCoreInvestigators()
   },
   methods: {
-    // getCoreInvestigators: function() {
-    //   if(this.allCards){
-    //     const tempCoreInvestigators = []
-    //     for(let i=1; i<6; i++){
-    //       tempCoreInvestigators.push(this.allCards[i])
-    //       this.favourites[this.allCards[i].code] = []
-    //     }
-    //     return tempCoreInvestigators
-    //   } else {
-    //     return null
-    //   }
-    //
-    // }
       getCoreInvestigators: function() {
         if(this.allCards){
         const tempCoreInvestigators = []
