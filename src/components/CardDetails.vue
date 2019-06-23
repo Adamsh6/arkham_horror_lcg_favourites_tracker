@@ -1,7 +1,5 @@
 <template lang="html">
   <div>
-    <!-- <p>Faction: {{card.faction_name}} | Cost: {{card.cost}} | XP: {{card.xp}}</p>
-  <p>{{card.real_text}}</p> -->
   <img :src="url + card.imagesrc" >
 </div>
 </template>
@@ -19,4 +17,8 @@ export default {
 </script>
 
 <style lang="css" scoped>
+img {
+  border: white 1px solid;
+  border-radius: 0.5em;
+}
 </style>

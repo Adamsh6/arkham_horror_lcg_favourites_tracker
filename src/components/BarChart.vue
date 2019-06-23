@@ -19,10 +19,11 @@ export default {
         },
         fontName: 'Arvo',
         colors: ['purple'],
-        vAxis: {
+        hAxis: {
           format: "#",
           baseline: 0
-        }
+        },
+        backgroundColor: {fill: '#E6E6FA', fillOpacity: 0.5}
       }
     }
   },

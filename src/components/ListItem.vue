@@ -54,7 +54,7 @@ export default {
 
 h4 {
   text-shadow: 0px 0px 8px white ;
-  background-color: #E6E6FA60 ;
+  background-color: #E6E6FA80 ;
   background-blend-mode: difference;
   width: auto;
   padding: 0;

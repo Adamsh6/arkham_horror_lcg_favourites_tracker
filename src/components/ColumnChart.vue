@@ -22,7 +22,8 @@ export default {
         vAxis: {
           format: "#",
           baseline: 0
-        }
+        },
+        backgroundColor: {fill: '#E6E6FA', fillOpacity: 0.7}
       }
     }
   },

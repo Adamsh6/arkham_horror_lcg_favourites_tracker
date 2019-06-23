@@ -1,13 +1,15 @@
 <template lang="html">
   <div>
-    <h3>Favourite Cards by Type</h3>
-  <column-chart :sanitisedChartData="favouriteByType"/>
+
   <h3>Favourite Cards by Faction</h3>
   <faction-pie-chart :sanitisedChartData="favouriteByFaction"/>
   <h3>Favourite Cards by Cost</h3>
   <column-chart :sanitisedChartData="favouriteByCost" />
   <h3>Repeated Favourite Cards</h3>
-  <bar-chart :sanitisedChartData="favouriteByRepeated" />
+  <bar-chart v-if="favouriteByRepeated.length > 1" :sanitisedChartData="favouriteByRepeated" />
+    <p v-if="favouriteByRepeated.length == 1">None of your favourite cards are shared between Investigators!</p>
+    <h3>Favourite Cards by Type</h3>
+  <column-chart :sanitisedChartData="favouriteByType"/>
 </div>
 </template>
 
@@ -91,7 +93,11 @@ export default {
 </script>
 
 <style lang="css" scoped>
-h3 {
+div {
   color: white;
+}
+h3 {
+  text-decoration: underline;
+  margin-top: 3em;
 }
 </style>

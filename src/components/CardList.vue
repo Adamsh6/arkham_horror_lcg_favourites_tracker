@@ -1,6 +1,7 @@
 <template lang="html">
 <div>
-  <div >
+  <h4>Filter options</h4>
+  <div class="filters">
     <select v-on:change="filterCards(isXP, isClass, isType)" v-model="selectedXP">
       <option value="-1">All XP Values</option>
       <option value="0">0XP</option>
@@ -23,7 +24,7 @@
   </select>
   </div>
     <ul>
-      <div v-for="(card, key) in filteredListContent">
+      <div class="list-item" v-for="(card, key) in filteredListContent">
     <list-item  :key="key" :card="card"></list-item><button v-if="notInFavourites(card)" v-on:click="handleButton(card)">Add to Favourites</button>
   </div>
   </ul>
@@ -115,8 +116,14 @@ export default {
 </script>
 
 <style lang="css" scoped>
+.filters {
 
-button {
-  display: inline-block;
+}
+select {
+  margin: 0.5em;
+}
+h4 {
+  color: white;
+  margin-bottom: 5px;
 }
 </style>

@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <nav><router-link :to="{name: 'home'}">Home</router-link><router-link :to="{name: 'statistics'}">Statistics</router-link></nav>
+    <header><h1>Arkham Horror LCG - Favourite Card Tracker</h1></header>
+    <nav><router-link :to="{name: 'home'}"><p>Investigators</p></router-link><router-link :to="{name: 'statistics'}"><p>Statistics</p></router-link></nav>
     <router-view :coreInvestigators="coreInvestigators" :selectedInvestigator="selectedInvestigator" :allCards="allCards" :favourites="favourites" id="view"></router-view>
 
   </div>
@@ -72,6 +73,7 @@ body {
    /* background-image: url('https://wallpaper-gallery.net/images/lovecraft-wallpaper-1920x1080/lovecraft-wallpaper-1920x1080-20.jpg'); */
   background-size: cover;
   background-attachment: fixed;
+  margin-top: 0px;
 }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -80,7 +82,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 10px;
 
 
 }
@@ -89,5 +91,16 @@ a {
 }
 a:visited {
   color: white;
+}
+img {
+  border: solid 1px white;
+  border-radius: 0.5em;
+}
+router-link {
+  margin: 5em;
+}
+header {
+  color: white;
+  margin-top: 0px;
 }
 </style>

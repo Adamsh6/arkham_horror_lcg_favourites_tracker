@@ -2,6 +2,7 @@
   <div>
     <div class="investigator">
       <img  :src="url + selectedInvestigator.imagesrc"/>
+      <h3>Favourites</h3>
       <card-list :listContent="investigatorFavourites" :favourites="true"></card-list>
     </div>
     <card-list v-if="filteredCards"  id="all-cards" :listContent="filteredCards" :favourites="investigatorFavourites">{{this.listContent}}</card-list>
@@ -87,5 +88,9 @@ export default {
 #all-cards {
   float:right;
   width: 50%
+}
+h3 {
+  color: white;
+  text-decoration: underline;
 }
 </style>

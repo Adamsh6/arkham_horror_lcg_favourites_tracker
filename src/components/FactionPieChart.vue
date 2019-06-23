@@ -20,7 +20,8 @@ export default {
         fontName: 'Arvo',
         slices: [{color: 'blue'}, {color: 'goldenrod'}, {color: 'purple'}, {color: 'red'}, {color: 'green'}, {color: 'gray'}],
         legend: {position: 'labeled'},
-        height: 500
+        height: 500,
+        backgroundColor: {fill: '#E6E6FA', fillOpacity: 0.7}
       }
     }
   },
